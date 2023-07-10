@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="/src/index.js"></script>
+  </head>
+  <body>
+    <button onclick="writeOut('Sten')">Sten</button>
+    <button onclick="writeOut('Sax')">Sax</button>
+    <button onclick="writeOut('Påse')">Påse</button>
+    <button
+      onclick="
+    score.vinnst=0,
+    score.förlust=0,
+    score.lika=0
+    "
+    >
+      Reset result
+    </button>
+
+    <div>
+      <h1>Resultat:</h1>
+      <p id="demo"></p>
+    </div>
+
+    <script>
+      let writeOutResult = (document.getElementById(
+        "demo"
+      ).innerHTML = `Vinnst: ${score.vinnst}, Förlust: ${score.förlust}, Lika: ${score.lika}`);
+
+      localStorage.setItem("writeresult", JSON.stringify(writeOutResult));
+      JSON.parse(localStorage.getItem("writeresult"));
+    </script>
+  </body>
+</html>
